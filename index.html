@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <title>Creative Thumbnails | Visual Identity Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/profile.png" />
+  <link rel="apple-touch-icon" href="images/profile.png" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +20,12 @@
       <img src="images/profile.png" class="logo" alt="Logo">
       <span class="brand"><span class="letter-anim-seq">PROFESSIONAL</span> <span class="accent-text letter-anim-seq">GRAPHIC DESIGNER</span></span>
     </div>
-    <ul class="nav-links">
+    <button class="menu-toggle" id="menuToggleBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="primaryNav">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">What I Do</a></li>
@@ -881,6 +887,5 @@
   </div>
 </body>
 </html>
-
 
 
