@@ -101,8 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
             item.className = "category-viewer-item";
 
             const image = document.createElement("img");
-            // REMOVED assets/ prefix
-            image.src = `${prefix}${i}.${extension}`;
+            image.src = `assets/${prefix}${i}.${extension}`;
             image.alt = `${title} ${i}`;
             image.loading = "lazy";
 
@@ -261,8 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 1; i <= 15; i += 1) {
             const img = document.createElement("img");
-            // REMOVED assets/ prefix
-            img.src = `thumbnail${i}.jpg`;
+            img.src = `assets/thumbnail${i}.jpg`;
             img.alt = `Thumbnail ${i}`;
             img.loading = "lazy";
             thumbnailImageRow.appendChild(img);
@@ -317,8 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 1; i <= 12; i += 1) {
             const img = document.createElement("img");
-            // REMOVED assets/ prefix
-            img.src = `social media post ${i}.jpg`;
+            img.src = `assets/social media post ${i}.jpg`;
             img.alt = `Social post ${i}`;
             img.loading = "lazy";
             socialImageRow.appendChild(img);
@@ -373,8 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 1; i <= 13; i += 1) {
             const img = document.createElement("img");
-            // REMOVED assets/ prefix
-            img.src = `Product Manipulation ${i}.jpg`;
+            img.src = `assets/Product Manipulation ${i}.jpg`;
             img.alt = `Product manipulation ${i}`;
             img.loading = "lazy";
             productImageRow.appendChild(img);
@@ -429,8 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 1; i <= 8; i += 1) {
             const img = document.createElement("img");
-            // REMOVED assets/ prefix
-            img.src = `poster ${i}.jpg`;
+            img.src = `assets/poster ${i}.jpg`;
             img.alt = `Poster ${i}`;
             img.loading = "lazy";
             posterImageRow.appendChild(img);
@@ -484,11 +479,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const imageSources = [];
-        // REMOVED assets/ prefix from all loops below
-        for (let i = 1; i <= 15; i += 1) imageSources.push(`thumbnail${i}.jpg`);
-        for (let i = 1; i <= 13; i += 1) imageSources.push(`Product Manipulation ${i}.jpg`);
-        for (let i = 1; i <= 12; i += 1) imageSources.push(`social media post ${i}.jpg`);
-        for (let i = 1; i <= 8; i += 1) imageSources.push(`poster ${i}.jpg`);
+        for (let i = 1; i <= 15; i += 1) imageSources.push(`assets/thumbnail${i}.jpg`);
+        for (let i = 1; i <= 13; i += 1) imageSources.push(`assets/Product Manipulation ${i}.jpg`);
+        for (let i = 1; i <= 12; i += 1) imageSources.push(`assets/social media post ${i}.jpg`);
+        for (let i = 1; i <= 8; i += 1) imageSources.push(`assets/poster ${i}.jpg`);
 
         imageSources.forEach((src, index) => {
             const img = document.createElement("img");
@@ -568,3 +562,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
