@@ -45,8 +45,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 2. NAVBAR SCROLL HIGHLIGHT
+    const navbar = document.querySelector(".glass-navbar");
+    const menuToggleBtn = document.getElementById("menuToggleBtn");
+    const navList = document.getElementById("primaryNav");
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-links a");
+
+    const closeMobileMenu = () => {
+        if (!navbar || !menuToggleBtn) {
+            return;
+        }
+        navbar.classList.remove("menu-open");
+        menuToggleBtn.setAttribute("aria-expanded", "false");
+    };
+
+    const openMobileMenu = () => {
+        if (!navbar || !menuToggleBtn) {
+            return;
+        }
+        navbar.classList.add("menu-open");
+        menuToggleBtn.setAttribute("aria-expanded", "true");
+    };
+
+    if (menuToggleBtn) {
+        menuToggleBtn.addEventListener("click", () => {
+            const isOpen = navbar && navbar.classList.contains("menu-open");
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            closeMobileMenu();
+        });
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!navbar || !menuToggleBtn || !navList) {
+            return;
+        }
+
+        if (!navbar.classList.contains("menu-open")) {
+            return;
+        }
+
+        const clickedInsideNav = event.target.closest(".glass-navbar");
+        if (!clickedInsideNav) {
+            closeMobileMenu();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
 
     const highlightNav = () => {
         let current = "";
@@ -521,6 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+            closeMobileMenu();
             closeLightbox();
             closeTextPreview();
             closeThumbnailDetail();
