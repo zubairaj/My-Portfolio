@@ -153,6 +153,42 @@ section img:not(.hero-image):hover {
   color: var(--text-main);
 }
 
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  padding: 10px 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text-main);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.glass-navbar.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.glass-navbar.menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.glass-navbar.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 
 
 
@@ -1966,7 +2002,7 @@ section img:not(.hero-image):hover {
 =========================== */
 @media (max-width: 768px) {
   html {
-    scroll-padding-top: 180px;
+    scroll-padding-top: 140px;
   }
 
   .cursor-glow {
@@ -1985,8 +2021,15 @@ section img:not(.hero-image):hover {
   }
 
   .nav-left {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
     gap: 10px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
   }
 
   .brand {
@@ -1997,26 +2040,26 @@ section img:not(.hero-image):hover {
 
   .nav-links {
     width: 100%;
-    gap: 10px;
-    padding-bottom: 2px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .nav-links::-webkit-scrollbar {
     display: none;
-  }
-
-  .nav-links li {
-    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(4, 10, 24, 0.96);
+    overflow: hidden;
   }
 
   .nav-links a {
-    font-size: 0.82rem;
-    white-space: nowrap;
+    display: block;
+    font-size: 0.88rem;
+    white-space: normal;
+    padding: 10px 12px;
+  }
+
+  .glass-navbar.menu-open .nav-links {
+    display: flex;
   }
 
   .hero {
